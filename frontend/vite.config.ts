@@ -2,11 +2,9 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
+import frappeui from 'frappe-ui/vite'
 
-export default defineConfig(async ({ mode }) => {
-  const isDev = mode === 'development'
-  const frappeui = await importFrappeUIPlugin(isDev)
-
+export default defineConfig(async () => {
   const config = {
     define: {
       __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false',
@@ -21,14 +19,8 @@ export default defineConfig(async ({ mode }) => {
         },
       }),
       AutoImport({
-        include: [
-          /\.vue$/,
-          /\.vue\?vue/,
-        ],
-        imports: [
-          'vue',
-          'vue-router',
-        ],
+        include: [/\.vue$/, /\.vue\?vue/],
+        imports: ['vue', 'vue-router'],
       }),
       vue(),
     ],
@@ -62,32 +54,5 @@ export default defineConfig(async ({ mode }) => {
       include: ['frappe-ui > feather-icons', 'frappe-ui > lowlight', 'yjs'],
     },
   }
-  if (isDev) {
-    try {
-      // Check if the local frappe-ui directory exists
-      const fs = await import('node:fs')
-      const localFrappeUIPath = path.resolve(__dirname, '../frappe-ui')
-      if (fs.existsSync(localFrappeUIPath)) {
-        config.resolve.alias['frappe-ui'] = localFrappeUIPath
-      } else {
-        console.warn('Local frappe-ui directory not found, using npm package')
-      }
-    } catch (error) {
-      console.warn('Error checking for local frappe-ui, using npm package:', error.message)
-    }
-  }
   return config
 })
-async function importFrappeUIPlugin(isDev) {
-  if (isDev) {
-    try {
-      const module = await import('../frappe-ui/vite')
-      return module.default
-    } catch (error) {
-      console.warn('Local frappe-ui not found, falling back to npm package:', error.message)
-    }
-  }
-  // Fall back to npm package if local import fails
-  const module = await import('frappe-ui/vite')
-  return module.default
-}
