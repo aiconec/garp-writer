@@ -47,7 +47,6 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     SearchDialog: typeof import('./src/components/SearchDialog.vue')['default']
-    Select: typeof import('./src/components/Select.vue')['default']
     SpacingDialog: typeof import('./src/components/SpacingDialog.vue')['default']
     TemplateDialog: typeof import('./src/components/TemplateDialog.vue')['default']
     TextEditor: typeof import('./src/components/TextEditor.vue')['default']
