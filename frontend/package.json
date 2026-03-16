@@ -35,7 +35,7 @@
     "diff2html": "^3.4.52",
     "docx": "^9.5.1",
     "file-saver": "^2.0.5",
-    "frappe-ui": "github:frappe/frappe-ui#cd668f155b73ef1bd6c0755ec52eeb112539cb6f",
+    "frappe-ui": "github:frappe/frappe-ui#ab3d6aad0283770cf592d2fe7b4365301e9e2db2",
     "fuzzysort": "^3.1.0",
     "hast-util-to-html": "^9.0.5",
     "html2pdf.js": "^0.12.1",
