@@ -2110,9 +2110,9 @@ fraction.js@^5.3.4:
   resolved "https://registry.yarnpkg.com/fraction.js/-/fraction.js-5.3.4.tgz#8c0fcc6a9908262df4ed197427bdeef563e0699a"
   integrity sha512-1X1NTtiJphryn/uLQz3whtY6jK3fTqoE3ohKs0tT+Ujr1W59oopxmoEh7Lu5p6vBaPbgoM0bzveAW4Qi5RyWDQ==
 
-"frappe-ui@github:frappe/frappe-ui#29ba5df9ecca9445d96be22ae269eaded6687052":
-  version "0.1.267"
-  resolved "https://codeload.github.com/frappe/frappe-ui/tar.gz/29ba5df9ecca9445d96be22ae269eaded6687052"
+"frappe-ui@github:frappe/frappe-ui#e0f866eec2d5d2e14e253da1e59437a91c28dddf":
+  version "0.1.270"
+  resolved "https://codeload.github.com/frappe/frappe-ui/tar.gz/e0f866eec2d5d2e14e253da1e59437a91c28dddf"
   dependencies:
     "@floating-ui/dom" "^1.7.4"
     "@floating-ui/vue" "^1.1.6"
