@@ -2,9 +2,16 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import path from 'path'
 import AutoImport from 'unplugin-auto-import/vite'
-import frappeui from 'frappe-ui/vite'
+import { getLocalFrappeUIDevConfig, importFrappeUIPlugin } from './vite-helpers'
 
-export default defineConfig(async () => {
+export default defineConfig(async ({ mode }) => {
+  const { useLocalFrappeUI, localFrappeUIAliases } = getLocalFrappeUIDevConfig({
+    mode,
+    rootDir: __dirname,
+  })
+
+  const frappeui = await importFrappeUIPlugin({ useLocalFrappeUI })
+
   const config = {
     define: {
       __VUE_PROD_HYDRATION_MISMATCH_DETAILS__: 'false',
@@ -28,8 +35,15 @@ export default defineConfig(async () => {
       alias: {
         '@': path.resolve(__dirname, 'src'),
         'tailwind.config.js': path.resolve(__dirname, 'tailwind.config.js'),
+        ...localFrappeUIAliases,
       },
-      dedupe: ['yjs'],
+      dedupe: [
+        'yjs',
+        'prosemirror-state',
+        'prosemirror-view',
+        'prosemirror-model',
+        'prosemirror-transform',
+      ],
     },
     build: {
       sourcemap: true,
@@ -46,12 +60,9 @@ export default defineConfig(async () => {
         allow: ['..'],
       },
     },
-    ssr: {
-      external: { html2canvas: 'html2canvas', dompurify: 'dompurify' },
-    },
     optimizeDeps: {
-      esbuildOptions: { target: 'esnext' },
-      include: ['frappe-ui > feather-icons', 'frappe-ui > lowlight', 'yjs'],
+      include: ['yjs',  'prosemirror-tables',
+        'prosemirror-gapcursor'],
     },
   }
   return config
