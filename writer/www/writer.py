@@ -14,7 +14,7 @@ def get_context():
     context.csrf_token = csrf_token
     context.site_name = frappe.local.site
 
-    context.title = "Frappe Writer"
+    context.title = "GARP Writer"
     context.description = "Open Writer online."
     if not frappe.form_dict.app_path:
         return context

@@ -1,8 +1,8 @@
 app_name = "writer"
-app_title = "Frappe Writer"
-app_publisher = "Frappe Technologies Pvt. Ltd."
+app_title = "GARP Writer"
+app_publisher = "Aiconec GARP"
 app_description = "A delightful document editor"
-app_email = "developers@frappe.io"
+app_email = "engineering@aiconec.com"
 app_license = "agpl-3.0"
 
 # Apps
