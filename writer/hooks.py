@@ -8,7 +8,6 @@ app_license = "agpl-3.0"
 # Apps
 # ------------------
 
-required_apps = ["drive"]
 sqlite_search = ["writer.search.WriterSearch"]
 # Each item in the list will be shown as an app in the apps page
 add_to_apps_screen = [
@@ -17,7 +16,6 @@ add_to_apps_screen = [
         "logo": "/assets/writer/frontend/favicon.png",
         "title": "Writer",
         "route": "/writer",
-        "has_permission": "drive.api.product.access_app",
     }
 ]
 
