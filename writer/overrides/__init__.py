@@ -1,5 +1,8 @@
-from drive.api.permissions import get_teams
 import frappe
+try:
+    from drive.api.permissions import get_teams
+except ImportError:
+    def get_teams(*a, **kw): return []
 
 
 def filter_templates(user):

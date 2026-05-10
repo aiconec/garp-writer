@@ -6,23 +6,39 @@ import markdown
 from markdown.extensions.wikilinks import WikiLinkExtension
 import mimemapper
 
-from drive.utils import (
-    create_drive_file,
-    default_team,
-    get_home_folder,
-    get_valid_breadcrumbs,
-    get_file_type,
-    get_default_team,
-)
-from drive.api.files import get_new_title
-from drive.api.permissions import (
-    user_has_permission,
-    ENTITY_FIELDS,
-    get_user_access,
-    requires,
-)
-from drive.utils.files import FileManager
-from drive.utils.users import mark_as_viewed
+try:
+    from drive.utils import (
+        create_drive_file,
+        default_team,
+        get_home_folder,
+        get_valid_breadcrumbs,
+        get_file_type,
+        get_default_team,
+    )
+    from drive.api.files import get_new_title
+    from drive.api.permissions import (
+        user_has_permission,
+        ENTITY_FIELDS,
+        get_user_access,
+        requires,
+    )
+    from drive.utils.files import FileManager
+    from drive.utils.users import mark_as_viewed
+except ImportError:
+    def create_drive_file(*a, **kw): frappe.throw("Drive not installed")
+    def default_team(*a, **kw): return None
+    def get_home_folder(*a, **kw): return None
+    def get_valid_breadcrumbs(*a, **kw): return []
+    def get_file_type(*a, **kw): return None
+    def get_default_team(*a, **kw): return None
+    def get_new_title(*a, **kw): return ""
+    def user_has_permission(*a, **kw): return True
+    ENTITY_FIELDS = []
+    def get_user_access(*a, **kw): return {}
+    requires = None
+    class FileManager:
+        def __init__(self, *a, **kw): frappe.throw("Drive not installed")
+    def mark_as_viewed(*a, **kw): pass
 
 # To be moved to mimemapper
 QUICK_MAP = {

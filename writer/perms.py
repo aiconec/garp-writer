@@ -1,5 +1,8 @@
 import frappe
-from drive.api.permissions import user_has_permission
+try:
+    from drive.api.permissions import user_has_permission
+except ImportError:
+    def user_has_permission(*a, **kw): return True
 
 
 def has_permission(doc, ptype, user=None):

@@ -2,8 +2,13 @@
 # For license information, please see license.txt
 
 from datetime import datetime, timedelta
-from drive.api.notifications import create_notification, get_link
-from drive.api.permissions import requires
+try:
+    from drive.api.notifications import create_notification, get_link
+    from drive.api.permissions import requires
+except ImportError:
+    def create_notification(*a, **kw): pass
+    def get_link(*a, **kw): return ""
+    requires = None
 
 import frappe
 from frappe.model.document import Document

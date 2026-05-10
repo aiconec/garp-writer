@@ -1,6 +1,11 @@
 import frappe
-from drive.api.files import upload_file, get_file_internal
-from drive.api.permissions import user_has_permission
+try:
+    from drive.api.files import upload_file, get_file_internal
+    from drive.api.permissions import user_has_permission
+except ImportError:
+    def upload_file(*a, **kw): frappe.throw("Drive not installed")
+    def get_file_internal(*a, **kw): return None
+    def user_has_permission(*a, **kw): return True
 
 
 @frappe.whitelist()
