@@ -65,7 +65,7 @@ def create_document(team, title=None, parent=None, template=None):
             {
                 "file_name": ".embeds",
                 "team": team,
-                "parent_path": Path(path),
+                "parent_path": Path(path) if path else None,
             }
         ),
         home_directory,
