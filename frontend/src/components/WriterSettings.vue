@@ -214,6 +214,8 @@ import { FormControl, Dialog, Tabs, FormLabel } from 'frappe-ui'
 import { FONT_FAMILIES, dynamicList } from '@/utils/'
 import Form from '@/components/Form.vue'
 import FontSelect from './FontSelect.vue'
+import LucideGlobe2 from '~icons/lucide/globe-2'
+import LucideFileText from '~icons/lucide/file-text'
 
 const open = ref(true)
 const model = defineModel()
