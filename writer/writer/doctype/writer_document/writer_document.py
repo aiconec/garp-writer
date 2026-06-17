@@ -91,7 +91,7 @@ class WriterDocument(Document):
         for k in kwargs:
             setattr(doc, k, kwargs[k])
         doc.file_modified = frappe.utils.now()
-        doc.save()
+        doc.save(ignore_permissions=True)
 
     def save_comments(self, data, file):
         try:
