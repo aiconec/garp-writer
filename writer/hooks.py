@@ -16,6 +16,7 @@ add_to_apps_screen = [
         "logo": "/assets/writer/frontend/favicon.png",
         "title": "Writer",
         "route": "/writer",
+        "has_permission": "writer.perms.check_app_permission",
     }
 ]
 
