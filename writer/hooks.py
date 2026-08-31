@@ -13,7 +13,7 @@ sqlite_search = ["writer.search.WriterSearch"]
 add_to_apps_screen = [
     {
         "name": "writer",
-        "logo": "/assets/writer/frontend/favicon.png",
+        "logo": "/assets/writer/images/garp-writer-icon.svg",
         "title": "Writer",
         "route": "/writer",
         "has_permission": "writer.perms.check_app_permission",

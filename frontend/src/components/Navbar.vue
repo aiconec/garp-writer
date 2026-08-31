@@ -54,15 +54,6 @@
         <Button variant="outline" @click="$router.push({ name: 'Login' })">
           Sign In
         </Button>
-        <Button
-          v-if="!isLoggedIn"
-          class="hidden md:block"
-          variant="solid"
-          label="Try out Drive"
-          @click="
-            open('https://frappecloud.com/dashboard/signup?product=drive')
-          "
-        />
       </template>
       <Button
         v-else-if="$route.name === 'Home'"
@@ -129,9 +120,6 @@ import WriterLogo from './WriterLogo.vue'
 import { useRoute } from 'vue-router'
 
 const store = useStore()
-const open = (url) => {
-  window.open(url, '_blank')
-}
 
 const props = defineProps({
   file: Object,
