@@ -4,8 +4,6 @@ app_publisher = "Aiconec GARP"
 app_description = "A delightful document editor"
 app_email = "engineering@aiconec.com"
 app_license = "agpl-3.0"
-# AGPL/GPL source offer: the corresponding source of THIS modified version.
-source_link = "https://github.com/aiconec/garp-writer"
 
 # Apps
 # ------------------
@@ -15,7 +13,7 @@ sqlite_search = ["writer.search.WriterSearch"]
 add_to_apps_screen = [
     {
         "name": "writer",
-        "logo": "/assets/writer/images/garp-writer-icon.svg",
+        "logo": "/assets/writer/frontend/favicon.png",
         "title": "Writer",
         "route": "/writer",
         "has_permission": "writer.perms.check_app_permission",
