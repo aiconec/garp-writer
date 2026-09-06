@@ -1,9 +1,12 @@
 app_name = "writer"
 app_title = "GARP Writer"
 app_publisher = "Aiconec GARP"
-app_description = "A delightful document editor"
+app_description = "GARP Writer — collaborative document editing"
 app_email = "engineering@aiconec.com"
 app_license = "agpl-3.0"
+# AGPL-3.0 section 13: this app is a modified version served over a network,
+# so its users are owed the corresponding source of THIS version.
+source_link = "https://github.com/aiconec/garp-writer"
 
 # Apps
 # ------------------
